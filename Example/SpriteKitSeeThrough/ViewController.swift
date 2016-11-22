@@ -18,28 +18,22 @@ class ViewController: UIViewController {
         sceneView.presentScene(scene)
         
         scene.scaleMode = .resizeFill
-        
-        
+
         let behind = SKShapeNode(rect: CGRect(x: scene.size.width * 0.5 - 40, y: scene.size.height * 0.5 - 40, width: 80, height: 80))
         behind.fillColor = .white
+
+        let cropNode = SKCropNode()
         
-        var walls = [SKNode]()
-        
-        for n in 0...20 {
+        for n in 0...11 {
             let wall = SKShapeNode(circleOfRadius: 25)
             wall.fillColor = .cyan
             wall.strokeColor = .red
             wall.position = CGPoint(x: n * 30,
                                     y: n * 30)
-            walls.append(wall)
-        }
-        
-        let cropNode = SKCropNode()
-        
-        for wall in walls {
+            
             cropNode.addChild(wall)
         }
-        
+
         let radius: CGFloat = 60.0
         mask = InvertedCircleMaskNode(sceneSize: scene.size,
                                       circleCenter: CGPoint(x: scene.size.width * 0.3, y: scene.size.width * 0.3),
