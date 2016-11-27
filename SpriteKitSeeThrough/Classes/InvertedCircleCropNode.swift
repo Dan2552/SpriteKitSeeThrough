@@ -1,6 +1,13 @@
 import SpriteKit
 
+/// `InvertedCircleMaskNode` allows you to create a SpriteKit node that can act as an inverted circular mask.
+/// It can be used, for example, to be able to allow the player to see behind walls if your character is behind a wall.
+///
+/// This is possible by using an image of a transparent (alpha 0) circle within a rectangle of the size of the scene. 
+/// Behind the scenes, this little library will pre-generate this image for you given a position and radius so you don't 
+/// have to create any assets manually.
 open class InvertedCircleMaskNode: SKNode {
+    /// Position of the mask's inverted circle within the rectangle
     public var circleCenter: CGPoint {
         get { return circle.position }
         set {
@@ -9,6 +16,7 @@ open class InvertedCircleMaskNode: SKNode {
         }
     }
     
+    /// Convenience method that sets the node's `position` attribute from the center (as opposed to bottom-left origin)
     public var rectangleCenter: CGPoint {
         get {
             return CGPoint(x: position.x + (size.width * 0.5),
@@ -32,10 +40,14 @@ open class InvertedCircleMaskNode: SKNode {
         return radius * 2
     }
 
+    /// Use init(size:circleCenter:circleRadius)
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented. Use init(size:circleCenter:circleRadius) instead.")
     }
 
+    /// - parameter size: Size of the rectange box of the mask
+    /// - parameter circleCenter: Position of the mask's inverted circle within the rectangle
+    /// - parameter circleRadius: Size of the circle
     public init(size: CGSize,
                 circleCenter: CGPoint = CGPoint(x: 0, y: 0),
                 circleRadius: CGFloat) {
