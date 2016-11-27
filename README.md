@@ -16,17 +16,31 @@ It's easier to understand if you see for yourself, so try out the included examp
 
 ## Usage
 
+### Setup
 ```swift
 let cropNode = SKCropNode()
 
 for wall in walls { cropNode.addChild(wall) }
 
-let mask = InvertedCircleMaskNode(sceneSize: scene.size,
+let mask = InvertedCircleMaskNode(size: scene.size,
                                   circleCenter: position,
-                                  radius: radius)
+                                  circleRadius: radius)
 
 cropNode.maskNode = mask
 ```
+
+### Repositioning and resizing
+```swift
+// Mask position and size
+mask.position = CGPoint(...)
+mask.rectangleCenter = CGPoint(...)
+mask.size = CGSize(...)
+
+// Circle position within mask
+mask.circleCenter = CGPoint(...)
+```
+
+Note: because rendering the circle is the expensive part, by design there is no inbuilt way to change the radius of the circle on an initialized node. If you want a resizing mask, consider either scaling the node or initializing different sizes upfront.
 
 ## Example
 
@@ -48,4 +62,3 @@ Daniel Inkpen, dan2552@gmail.com
 ## License
 
 SpriteKitSeeThrough is available under the MIT license. See the LICENSE file for more info.
-

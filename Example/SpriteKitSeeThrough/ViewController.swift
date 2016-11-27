@@ -4,22 +4,23 @@ import SpriteKit
 
 class ViewController: UIViewController {
     var gestureRecognizer: UITapGestureRecognizer!
-    let sceneView = SKView(frame: CGRect(x: 0, y: 30, width: 300, height: 300))
+    var sceneView: SKView!
     var mask: InvertedCircleMaskNode!
     
     override func viewDidLoad() {
-        setupGestureRecognizer()
         setupView()
+        setupGestureRecognizer()
     }
     
     func setupView() {
-        let scene = SKScene(size: CGSize(width: 300, height: 300))
+        sceneView = SKView(frame: view.frame)
+        let scene = SKScene(size: view.frame.size)
         sceneView.showsFPS = true
         sceneView.presentScene(scene)
         
         scene.scaleMode = .resizeFill
 
-        let behind = SKShapeNode(rect: CGRect(x: scene.size.width * 0.5 - 40, y: scene.size.height * 0.5 - 40, width: 80, height: 80))
+        let behind = SKShapeNode(rect: CGRect(x: scene.size.width * 0.5 - 40, y: 125, width: 80, height: 80))
         behind.fillColor = .white
 
         let cropNode = SKCropNode()
@@ -35,9 +36,9 @@ class ViewController: UIViewController {
         }
 
         let radius: CGFloat = 60.0
-        mask = InvertedCircleMaskNode(sceneSize: scene.size,
+        mask = InvertedCircleMaskNode(size: scene.size,
                                       circleCenter: CGPoint(x: scene.size.width * 0.3, y: scene.size.width * 0.3),
-                                      radius: radius)
+                                      circleRadius: radius)
         
         
         scene.addChild(behind)
