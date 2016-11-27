@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SpriteKitSeeThrough'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Inverted circular mask SpriteKit node'
 
   s.description      = <<-DESC

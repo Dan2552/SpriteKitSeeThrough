@@ -1,7 +1,7 @@
 PODS:
   - Nimble (5.1.0)
   - Quick (0.10.0)
-  - SpriteKitSeeThrough (0.1.0)
+  - SpriteKitSeeThrough (0.2.0)
 
 DEPENDENCIES:
   - Nimble (= 5.1.0)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 5ea121a2eda60440287054cde077fc0ad22227b3
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
-  SpriteKitSeeThrough: fff0a0c83077dd32fce78cc1b43e6e8c31346c6d
+  SpriteKitSeeThrough: 0567aaf6e042a0c032448b5633182a2b2584379d
 
 PODFILE CHECKSUM: 89d68d5bb154e69dee01f95949b8ed357b947633
 
